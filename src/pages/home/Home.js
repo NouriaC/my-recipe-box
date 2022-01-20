@@ -1,8 +1,12 @@
 import './Home.css'
 import { useFetch } from '../../hooks/usefetch';
+import { useState } from 'react';
+import RecipeList from '../../components/RecipeList';
 
 export default function Home() {
     const { data, isLoading, error } = useFetch('http://localhost:3000/recipes');
+
+    // const [recipes, setRecipes ] = useState(data);
 
 
   return (
@@ -28,14 +32,7 @@ export default function Home() {
           </div>
         </div>
         <div className="recipes-list">
-            {data && data.map(recipe => {
-                const { id, title, photo, cookingTime, prepTime } = recipe;
-                return <a key={id} href="single-recipe.html" className="recipe">
-            <img src={photo} alt="food" className="recipe-img"/>
-            <h5>{title}</h5>
-            <p>Prep: {prepTime} | Cook: {cookingTime}</p>
-          </a>
-            })}
+            {data && <RecipeList recipes={data}/>}
         </div>
       </section>
     </main>
