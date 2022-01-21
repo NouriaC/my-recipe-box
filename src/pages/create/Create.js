@@ -31,7 +31,6 @@ export default function Create() {
       }
     }, [data, navigate])
 
-   
 
     const handleAdd = (e) => {
         e.preventDefault();
@@ -44,18 +43,18 @@ export default function Create() {
     }
 
     return (
-    <section className="contact-container">
-      <article className="contact-info">
+    <section className="page">
+      <article>
         <h3>Add a new recipe</h3>
       </article>
+      {error && <p>{error}</p>}
       <article>
-        <form className="form contact-form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form-row">
             <label htmlFor="title" className="form-label">recipe title: </label>
             <input 
              required
              type="text" 
-             name="title" 
              id="title" 
              className="form-input"
              value={title}
@@ -66,13 +65,12 @@ export default function Create() {
             <div className='form-ingredients'>
             <input 
              type="text" 
-             name="ingredients" 
              id="ingredients" 
-             className="form-input"
+             className="form-input ingredient"
              value={newIngredient}
              ref={ingredientInput}
              onChange={(e) => setNewIngredient(e.target.value)}/>
-             <button className='btn' onClick={handleAdd}>add</button>
+             <button className='btn btn-add' onClick={handleAdd}>add</button>
              </div>
              <p>Current ingredients: </p>
              {ingredients.map(ing => <em key={ing}>{ing}, </em>)}
@@ -82,7 +80,6 @@ export default function Create() {
             <input 
              required
              type="number" 
-             name="cooktime" 
              id="cooktime" 
              className="form-input"
              value={cookingTime}
@@ -93,7 +90,6 @@ export default function Create() {
             <input 
              required
              type="number" 
-             name="preptime" 
              id="preptime" 
              className="form-input"
              value={prepTime}
@@ -103,7 +99,6 @@ export default function Create() {
             <label htmlFor="image" className="form-label">Photo link: </label>
             <input 
              type="text" 
-             name="image" 
              id="image" 
              className="form-input"
              value={photo}
@@ -119,7 +114,7 @@ export default function Create() {
              onChange={(e) => setMethod(e.target.value)}
              className="form-textarea"></textarea>
           </div>
-          <button type="submit" className="btn btn-block">submit</button>
+          <button type="submit" className="btn btn-submit">submit</button>
         </form>
       </article>
     </section>

@@ -1,12 +1,9 @@
 import './Home.css'
 import { useFetch } from '../../hooks/usefetch';
-import { useState } from 'react';
 import RecipeList from '../../components/RecipeList';
 
 export default function Home() {
     const { data, isLoading, error } = useFetch('http://localhost:3000/recipes');
-
-    // const [recipes, setRecipes ] = useState(data);
 
 
   return (
@@ -19,21 +16,10 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <section className="recipes-container">
+      <section className="recipes-list">
           {error && <p>{error}</p>}
           {isLoading && <p>{isLoading}</p>}
-        <div className="tags-container">
-          <h4>recipes</h4>
-          <div className="tags-list">
-            <a href="tag-template.html">Beef (1)</a>
-            <a href="tag-template.html">Breakfast (2)</a>
-            <a href="tag-template.html">Carrots (3)</a>
-            <a href="tag-template.html">Food (4)</a>
-          </div>
-        </div>
-        <div className="recipes-list">
-            {data && <RecipeList recipes={data}/>}
-        </div>
+          {data && <RecipeList recipes={data}/>}
       </section>
     </main>
   );

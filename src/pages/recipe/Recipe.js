@@ -9,7 +9,7 @@ export default function Recipe() {
   const { error, isLoading, data: recipe} = useFetch(url)
 
   return (
-  <div className="recipe-page">
+  <div className="page">
    {error && <p>{error}</p>}
     {isLoading && <p>{isLoading}</p>}
     {recipe && (
@@ -29,16 +29,6 @@ export default function Recipe() {
               <h5>cook time</h5>
               <p>{recipe.cookingTime}</p>
             </article>
-            <article>
-              <h5>servings</h5>
-              <p>6 servings</p>
-            </article>
-          </div>
-          <div className="recipe-tags">
-            Tags: <a href="tag-template.html">beef</a>
-             <a href="tag-template.html">breakfast</a>
-             <a href="tag-template.html">pancakes</a>
-             <a href="tag-template.html">food</a>
           </div>
         </article>
       </section>

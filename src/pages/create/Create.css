@@ -1,3 +1,18 @@
 .form-ingredients {
   display: flex;
 }
+
+.form-input.ingredient {
+  margin-right: 0.85rem;
+}
+
+.btn-add {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}

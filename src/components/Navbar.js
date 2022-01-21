@@ -2,6 +2,7 @@ import './Navbar.css'
 import Logo from '../assets/logo.svg';
 import { FaBars } from "react-icons/fa";
 import { useState, useRef, useEffect } from 'react';
+import Searchbar from './Searchbar';
 
 
 export default function Navbar() {
@@ -27,6 +28,7 @@ export default function Navbar() {
            <FaBars />
          </button>
        </div>
+       <Searchbar/>
        <div className='links-container show-container' ref={linksContainerRef}>
            <ul className="links" ref={linksRef}>
                <li>
@@ -34,12 +36,6 @@ export default function Navbar() {
                </li>
                <li>
                   <a href="/about">about</a>  
-               </li>
-               <li>
-                  <a href="/tags">tags</a>  
-               </li>
-               <li>
-                  <a href="/recipes">recipes</a>  
                </li>
                <li>
                   <a href="/create" className='create-btn'>create</a>  
